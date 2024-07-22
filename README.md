@@ -10,7 +10,28 @@
 
 
 ## Introducción
+En este trabajo práctico se realizará un programa para que el ESP32 se conecte a una red WiFi y mantenga la conexión durante la ejeución del mismo. Además iniciará un access point que se utilizará en un portal embebido en el Trabajo Práctico Nº7.
 
+La estructura ```config``` almacena los valores de configuración tanto de la red a conectar como los datos para el AP.
+
+```cpp
+struct Config {
+  const char* device;
+  const char* ssid;
+  const char* ssid_pass;
+  const char* ap_ssid;
+  const char* ap_pass;
+};
+```
+
+Estas variables se inicializarán con los valores que correspondan en ```setup.h```
+```cpp
+    //--Init wifi
+    config.ssid="XXXX";
+    config.ssid_pass="xxxxxxxx";
+    config.ap_ssid=config.device;
+    config.ap_pass="xxxxxxxx";
+```
 
 ## Circuito
 En la figura se aprecia el circuito de este trabajo práctico, el led conectado al pin físico 37 de la placa de desarrollo NODE-MCU32, que corresponde al puerto 23 (GPIO23) del microcontrolador, reflejará el estado de la conexión wifi.
